@@ -1,6 +1,6 @@
 ![validation-master-logo](https://i.ibb.co/Htjd9kY/logo.png)
 
-> validation-master is a tiny module which provides lots of validation methods.Currently, It has 16 methods which are mentioned below.
+> validation-master is a tiny module which provides lots of validation methods.Currently, It has 17 methods which are mentioned below.
 
 |Method|Description|
 |----|-----|
@@ -15,8 +15,9 @@
 |isNumeric|Checks if string is numeric and returns a boolean value.|
 |isAlphaNumeric|Checks if string is alphanumeric and returns a boolean value.|
 |isValidDate|Checks if date is in valid format and returns an array containing boolean value and date.If you pass true in third parameter isBoolean then it will return an array containing boolean value and a date with ISO format|
-|isFutureDate|Checks if date is today's date or future date and returns boolean value.|
-|isPastDate|Checks if date is today's date or past date and returns boolean value.|
+|isFutureDate|Checks if date is future date and returns boolean value.|
+|isPastDate|Checks if date is past date and returns boolean value.|
+|isCurrentDate|Checks if date is current date and returns boolean value.|
 |isEighteenPlus|Checks if age is eighteen plus and returns an array containing boolean value and age.|
 |isEmpty|Checks if string is empty string and returns boolean value.|
 |isURL|Checks if string is url and returns boolean value.|
@@ -147,7 +148,7 @@ console.log(isValidDate(date, "-", false))
 
 ### isFutureDate
 
-Checks if date is today's date or future date and returns boolean value.
+Checks if date is future date and returns boolean value.
 
 _Example_
 
@@ -158,13 +159,24 @@ console.log(isFutureDate(date))
 
 ### isPastDate
 
-Checks if date is today's date or past date and returns boolean value.
+Checks if date is past date and returns boolean value.
 
 _Example_
 
 ```
 const date = "30-06-2021"
 console.log(isPastDate(date))
+```
+
+### isCurrentDate
+
+Checks if date is current date and returns boolean value.
+
+_Example_
+
+```
+const date = "30-06-2021"
+console.log(isCurrentDate(date))
 ```
 
 ### isEighteenPlus

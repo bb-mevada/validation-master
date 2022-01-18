@@ -216,7 +216,7 @@ class Validators {
     /**
      * 
      * @param {string} date
-     * @description Checks if date is today date or future date
+     * @description Checks if date is future date
      * @returns {boolean}
      */
     static isFutureDate = (date) => {
@@ -229,7 +229,7 @@ class Validators {
             date = moment(date, "DD-MM-YYYY")
         }
 
-        if (date.isSameOrAfter(todayDate)) {
+        if (date.isAfter(todayDate)) { // Earlier used isSameOrAfter
             return true
         } else {
             return false
@@ -239,7 +239,7 @@ class Validators {
     /**
      * 
      * @param {string} date
-     * @description Checks if date is today date or past date
+     * @description Checks if date is past date
      * @returns {boolean}
      */
     static isPastDate = (date) => {
@@ -252,7 +252,30 @@ class Validators {
             date = moment(date, "DD-MM-YYYY")
         }
 
-        if (date.isSameOrBefore(todayDate)) {
+        if (date.isBefore(todayDate)) { // Earlier used isSameOrBefore
+            return true
+        } else {
+            return false
+        }
+    };
+
+    /**
+   * 
+   * @param {string} date
+   * @description Checks if date is today date
+   * @returns {boolean}
+   */
+    static isCurrentDate = (date) => {
+        const todayDate = moment(moment().utcOffset(330).format("DD-MM-YYYY"), "DD-MM-YYYY");
+
+        if (date.includes("/")) {
+            date = moment(date.split("/").join("-"), "DD-MM-YYYY")
+        }
+        else {
+            date = moment(date, "DD-MM-YYYY")
+        }
+
+        if (date.isSame(todayDate)) {
             return true
         } else {
             return false
